@@ -11,121 +11,80 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 
+
 function promptUser() {
     return inquirer.prompt([
         {
             type: "input",
             name: "nameManager",
-            message: "Enter name of Manager: "
+            message: "Enter name of the manager: "
         },
         {
             type: "input",
             name: "idManager",
-            message: "Enter ID of manager: "
+            message: "Enter ID of the manager: "
         },
         {
             type: "input",
             name: "emailManager",
-            message: "Enter email of manager: "
+            message: "Enter email of the manager: "
         },
         {
             type: "input",
             name: "officeManager",
-            message: "Enter office number of manager: "
+            message: "Enter office number of the manager: "
         },
         {
             type: "input",
-            name: "nameEngineer1",
-            message: "Enter name of engineer number 1: "
+            name: "nameEngineer",
+            message: "Enter name of the engineer: "
         },
         {
             type: "input",
-            name: "idEngineer1",
-            message: "Enter ID of engineer number 1: "
+            name: "idEngineer",
+            message: "Enter ID of the engineer: "
         },
         {
             type: "input",
-            name: "emailEngineer1",
-            message: "Enter email of engineer number 1: "
+            name: "emailEngineer",
+            message: "Enter email of the engineer: "
         },
         {
             type: "input",
-            name: "githubEngineer1",
-            message: "Enter GitHub Username of engineer number 1: "
+            name: "githubEngineer",
+            message: "Enter GitHub Username of the engineer: "
         },
-        {
-            type: "input",
-            name: "nameEngineer2",
-            message: "Enter name of engineer number 2: "
-        },
-        {
-            type: "input",
-            name: "idEngineer2",
-            message: "Enter ID of engineer number 2: "
-        },
-        {
-            type: "input",
-            name: "emailEngineer2",
-            message: "Enter email of engineer number 2: "
-        },
-        {
-            type: "input",
-            name: "githubEngineer2",
-            message: "Enter GitHub Username of engineer number 2: "
-        },
-  
-        {
-            type: "input",
-            name: "nameEngineer3",
-            message: "Enter name of engineer number 3: "
-        },
-        {
-            type: "input",
-            name: "idEngineer3",
-            message: "Enter ID of engineer number 3: "
-        },
-        {
-            type: "input",
-            name: "emailEngineer3",
-            message: "Enter email of engineer number 3: "
-        },
-        {
-            type: "input",
-            name: "githubEngineer3",
-            message: "Enter GitHub Username of engineer number 3: "
-        },
-        
-  
         {
             type: "input",
             name: "nameIntern",
-            message: "Enter name of Intern: "
+            message: "Enter name of the intern: "
         },
         {
             type: "input",
             name: "idIntern",
-            message: "Enter ID of Intern: "
+            message: "Enter ID of the intern: "
         },
         {
             type: "input",
             name: "emailIntern",
-            message: "Enter email of Intern:"
+            message: "Enter email of the intern:"
         },
         {
             type: "input",
             name: "linkedinIntern",
-            message: "Enter linkedin account of intern: "
+            message: "Enter linkedin account of the intern: "
         },
        
     ]);
   }
   
-  
+
+ 
   const init = async () => {
     try {
       await promptUser();
   
-      const htmlString = await render(employees);
+      const html = fs.readFileSync("templates/Main.html");
 
       
       fs.writeFileSync(outputPath, html)
@@ -136,4 +95,6 @@ function promptUser() {
   };
   
   init();
+
+
   
